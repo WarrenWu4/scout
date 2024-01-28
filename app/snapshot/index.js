@@ -6,6 +6,8 @@ import { Image } from 'expo-image';
 import ImgPreview from "../../components/ImgPreview"
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import * as FileSystem from 'expo-file-system';
+
 export default function Page() {
 
     let camera = null;
@@ -34,11 +36,30 @@ export default function Page() {
         setType(current => (current === CameraType.back ? CameraType.front : CameraType.back));
     }
 
+    const getBlobFroUri = async (uri) => {
+        const blob = await new Promise((resolve, reject) => {
+          const xhr = new XMLHttpRequest();
+          xhr.onload = function () {
+            resolve(xhr.response);
+          };
+          xhr.onerror = function (e) {
+            reject(new TypeError("Network request failed"));
+          };
+          xhr.responseType = "blob";
+          xhr.open("GET", uri, true);
+          xhr.send(null);
+        });
+      
+        return blob;
+    };
+
     async function takePicture() {
         if (camera) {
             const photo = await camera.takePictureAsync();
             setPreview(true);
             setImg(photo);
+            const imageBlog = await getBlobFroUri(photo.uri);
+            console.log(imageBlog)
         }
     }
 
