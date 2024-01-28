@@ -24,7 +24,8 @@
     "expo-image": "~1.10.5",
     "expo-asset": "~9.0.2",
     "expo-camera": "~14.0.3",
-    "expo-speech": "~11.7.0"
+    "expo-speech": "~11.7.0",
+    "expo-linear-gradient": "~12.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
