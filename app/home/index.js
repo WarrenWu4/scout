@@ -50,7 +50,7 @@ export default function Page() {
     )
 }
 
-styles = StyleSheet.create({
+const styles = StyleSheet.create({
     home: {
         width: "100%",
         height: "100%",

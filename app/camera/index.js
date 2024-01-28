@@ -21,7 +21,7 @@ export default function Page() {
 
                 </View>
 
-                <View style={styles.cardContainer}>
+                <View style={styles.services}>
 
                     <View style={styles.brailleCard}>
 
@@ -61,7 +61,7 @@ export default function Page() {
     )
 }
 
-styles = StyleSheet.create({
+const styles = StyleSheet.create({
     home: {
         width: "100%",
         height: "100%",
@@ -82,7 +82,7 @@ styles = StyleSheet.create({
         fontSize: 22,
         fontWeight: "bold",
     },
-    cardContainer: {
+    services: {
         display: "flex", flexDirection: "row", columnGap: 24, marginTop: 32
     },
     brailleCard: {
