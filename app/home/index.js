@@ -1,15 +1,19 @@
 import { Text, View, StyleSheet } from 'react-native';
 import { Image } from 'expo-image';
 import { useState } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import TCard from '../../components/TCard';
 import AnimatedTyping from '../../components/AnimatedTyping';
+import Navigation from '../../components/Navigation';
 
 export default function Page() {
 
     let [greetingText, setGreetingText] = useState("Welcome to scout!")
 
     return (
-        <View style={styles.home}>
+        <SafeAreaView style={{backgroundColor: "#F4C288"}}>
+
+            <View style={styles.home}>
 
             <View style={styles.homeHeader}>
 
@@ -38,7 +42,11 @@ export default function Page() {
 
             </View>
 
-        </View>
+            </View>
+
+            <Navigation></Navigation>
+
+        </SafeAreaView>
     )
 }
 
@@ -50,9 +58,10 @@ styles = StyleSheet.create({
         backgroundColor: '#F4C288',
         paddingLeft: 16,
         paddingRight: 16,
+        position: "relative",
     },
     homeHeader: {
-        marginTop: 48,
+        marginTop: 24,
         width: "100%",
         display: "flex",
         flexDirection: "row",
