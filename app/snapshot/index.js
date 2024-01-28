@@ -1,8 +1,8 @@
 import { Camera, CameraType } from 'expo-camera';
 import { useState } from 'react';
-import { Button, StyleSheet, Text, TouchableOpacity, View, ImageBackground } from 'react-native';
+import { Button, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import { Link } from 'expo-router';
-import ImgPreview from '../../components/ImgPreview';
+import ImgPreview from "../../components/ImgPreview"
 
 export default function Page() {
 
@@ -77,6 +77,8 @@ return (
 
 const styles = StyleSheet.create({
     container: {
+        width: "100%",
+        height: "100%",
         flex: 1,
         justifyContent: 'center',
     },

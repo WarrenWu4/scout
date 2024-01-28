@@ -1,13 +1,10 @@
-import { SafeAreaView } from "react-native-safe-area-context"
 import { View, Text, StyleSheet } from "react-native"
 import { Image } from "expo-image"
-import Navigation from "../../components/Navigation"
+import { Link } from "expo-router"
 
 export default function Page() {
     return (
-        <SafeAreaView style={{backgroundColor: "#F4C288"}}>
-
-            <View style={styles.home}>
+        <View style={styles.home}>
 
                 <View style={styles.homeHeader}>
 
@@ -23,17 +20,19 @@ export default function Page() {
 
                 <View style={styles.services}>
 
-                    <View style={styles.brailleCard}>
+                    <Link href="/snapshot">
+                        <View style={styles.brailleCard}>
 
-                        <Image
-                            style={{width: 48, height: 48}}
-                            source={require("../../assets/brailleIcon.svg")}
-                            contentFit="contain"
-                        />
+                            <Image
+                                style={{width: 48, height: 48}}
+                                source={require("../../assets/brailleIcon.svg")}
+                                contentFit="contain"
+                                />
 
-                        <Text style={styles.brailleText}>Braille</Text>
+                            <Text style={styles.brailleText}>Braille</Text>
 
-                    </View>
+                        </View>
+                    </Link>
 
                     <View style={styles.aslCard}>
 
@@ -53,11 +52,7 @@ export default function Page() {
                 </View>
 
 
-            </View>
-
-            <Navigation></Navigation>
-
-        </SafeAreaView>
+        </View>
     )
 }
 
@@ -72,14 +67,13 @@ const styles = StyleSheet.create({
         position: "relative",
     },
     homeHeader: {
-        marginTop: 24,
         width: "100%",
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between"
     },
     homeTitleText: {
-        fontSize: 22,
+        fontSize: 28,
         fontWeight: "bold",
     },
     services: {

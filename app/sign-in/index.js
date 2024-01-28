@@ -1,10 +1,7 @@
 import { Pressable, StyleSheet, ImageBackground } from "react-native";
 import { View, Text } from "react-native";
 import { Image } from "expo-image";
-<<<<<<< HEAD
-=======
 import { Link } from "expo-router";
->>>>>>> dfbc07c858a49b539f7e3525a96845b361ca2678
 
 export default function SignIn() {
     return (
