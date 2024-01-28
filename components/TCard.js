@@ -1,14 +1,22 @@
-import { View, Text, StyleSheet, Pressable } from "react-native"
+import { View, Text, StyleSheet, Pressable, Button } from "react-native"
 import { Image } from "expo-image"
 
+import * as Speech from 'expo-speech';
+
+
 export default function TCard() {
+
+    function speak() {
+        const thingToSay = '1';
+        Speech.speak(thingToSay);
+    };
 
     return (
         <View style={styles.card}>
             
             <View style={styles.cardControl}>
 
-                <Pressable style={styles.switchBtn} onPress={() => console.log("fuc u")} title="View">
+                <Pressable style={styles.switchBtn} onPress={speak} title="View">
                     
                     <Image
                         style={{ width: 24, height: 24 }}
@@ -19,7 +27,7 @@ export default function TCard() {
 
                 </Pressable>
 
-                <Pressable onPress={() => console.log("fuc u")} title="Output">
+                <Pressable onPress={speak} title="Output">
     
                     <Image
                         style={{width: 32, height: 32}}

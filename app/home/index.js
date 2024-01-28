@@ -1,19 +1,13 @@
-import { Text, View, StyleSheet, Button } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 import { Image } from 'expo-image';
 import { useState } from 'react';
 import TCard from '../../components/TCard';
 import AnimatedTyping from '../../components/AnimatedTyping';
 
-import * as Speech from 'expo-speech';
 
 export default function Page() {
 
     let [greetingText, setGreetingText] = useState("Welcome to scout!")
-
-    const speak = () => {
-        const thingToSay = '1';
-        Speech.speak(thingToSay);
-    };
 
     return (
         <View style={styles.home}>
@@ -39,10 +33,6 @@ export default function Page() {
             </View>
 
             <View style={styles.cardContainer}>
-                
-            <View style={styles.container}>
-                <Button title="Press to hear some words" onPress={speak} />
-            </View>
 
                 <TCard></TCard>
                 <TCard></TCard>
