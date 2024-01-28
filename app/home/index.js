@@ -1,8 +1,8 @@
 import { Text, View, StyleSheet } from 'react-native';
 import { Image } from 'expo-image';
-import { useAssets } from 'expo-asset';
-import AnimatedTyping from '../../components/AnimatedTyping';
 import { useState } from 'react';
+import TCard from '../../components/TCard';
+import AnimatedTyping from '../../components/AnimatedTyping';
 
 export default function Page() {
 
@@ -32,7 +32,9 @@ export default function Page() {
             </View>
 
             <View style={styles.cardContainer}>
-
+                
+                <TCard></TCard>
+                <TCard></TCard>
 
             </View>
 
@@ -67,7 +69,10 @@ styles = StyleSheet.create({
         fontWeight: "bold",
     },
     cardContainer: {
+        marginTop: 32,
         width: "100%",
         height: "100%",
+        display: "flex",
+        rowGap: 28,
     }
 })
