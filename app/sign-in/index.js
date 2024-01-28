@@ -1,7 +1,6 @@
 import { Pressable, StyleSheet, ImageBackground } from "react-native";
 import { View, Text } from "react-native";
 import { Image } from "expo-image";
-import { LinearGradient } from "expo-linear-gradient";
 
 export default function SignIn() {
     return (
