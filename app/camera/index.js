@@ -2,6 +2,7 @@ import { SafeAreaView } from "react-native-safe-area-context"
 import { View, Text, StyleSheet } from "react-native"
 import { Image } from "expo-image"
 import Navigation from "../../components/Navigation"
+import { Link } from "expo-router"
 
 export default function Page() {
     return (
@@ -23,17 +24,19 @@ export default function Page() {
 
                 <View style={styles.services}>
 
-                    <View style={styles.brailleCard}>
+                    <Link href={"/camera/snapshot"}>
+                        <View style={styles.brailleCard}>
 
-                        <Image
-                            style={{width: 48, height: 48}}
-                            source={require("../../assets/brailleIcon.svg")}
-                            contentFit="contain"
-                        />
+                            <Image
+                                style={{width: 48, height: 48}}
+                                source={require("../../assets/brailleIcon.svg")}
+                                contentFit="contain"
+                            />
 
-                        <Text style={styles.brailleText}>Braille</Text>
+                            <Text style={styles.brailleText}>Braille</Text>
 
-                    </View>
+                        </View>
+                    </Link>
 
                     <View style={styles.aslCard}>
 
