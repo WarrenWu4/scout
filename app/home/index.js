@@ -34,8 +34,8 @@ export default function Page() {
 
             <View style={styles.cardContainer}>
 
-                <TCard></TCard>
-                <TCard></TCard>
+                <TCard text={"The adventurous cat leaped gracefully from one rooftop to another, exploring the cityscape."}></TCard>
+                <TCard text={"In the quiet library, the smell of old books filled the air as students studied diligently for their exams."}></TCard>
 
             </View>
 

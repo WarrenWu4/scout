@@ -4,10 +4,10 @@ import { Image } from "expo-image"
 import * as Speech from 'expo-speech';
 
 
-export default function TCard() {
+export default function TCard(props) {
 
     function speak() {
-        const thingToSay = '1';
+        const thingToSay = props.text;
         Speech.speak(thingToSay);
     };
 
@@ -40,7 +40,7 @@ export default function TCard() {
             </View>
 
             <Text>
-            Lorem ipsum dolor sit amet consectetur. Aliquet arcu quis morbi ut at ipsum risus diam eu. Nunc nec at leo ultrices vel pellentesque amet. Risus sem eget blandit augue amet arcu convallis. Ut egestas consequat tincidunt morbi mi massa sagittis sed dolor.
+                {props.text}
             </Text>
 
         </View>

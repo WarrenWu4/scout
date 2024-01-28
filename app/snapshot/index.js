@@ -6,12 +6,14 @@ import { Image } from 'expo-image';
 import ImgPreview from "../../components/ImgPreview"
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { uploadImage } from '../../firebase/functions';
 import * as FileSystem from 'expo-file-system';
 
 export default function Page() {
 
     let camera = null;
 
+    const [translated, setTranslated] = useState("")
     const [preview, setPreview] = useState(false)
     const [img, setImg] = useState(null)
     const [type, setType] = useState(CameraType.back);
@@ -55,17 +57,38 @@ export default function Page() {
 
     async function takePicture() {
         if (camera) {
+            setTranslated("")
             const photo = await camera.takePictureAsync();
+
+            // const imageBlog = await getBlobFroUri(photo.uri);
+
+            // console.log(imageBlog)
+            // const base64 = await FileSystem.readAsStringAsync(photo.uri, { encoding: 'base64' });
+
+            // console.log(base64)
+            
+            const test = await fetch("http://10.228.163.106:5000", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    "bucket_uri":"https://i.imgur.com/osNCAx3.jpg"
+                }),
+            });
+            
+            console.log(test);
+            const responseData = await test.json();
+            setTranslated(responseData["final_string"]);
             setPreview(true);
             setImg(photo);
-            const imageBlog = await getBlobFroUri(photo.uri);
-            console.log(imageBlog)
+            
         }
     }
 
     if (preview && img) {
         return (
-            <ImgPreview img={img} setPreview={setPreview}></ImgPreview>
+            <ImgPreview img={img} translated={translated} setPreview={setPreview}></ImgPreview>
         );
     }
 

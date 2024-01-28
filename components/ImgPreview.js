@@ -13,7 +13,7 @@ export default function ImgPreview(props) {
     return (
         <SafeAreaView style={{backgroundColor: "#F4C288"}}>
 
-            <View style={styles.home}>
+            <ScrollView style={styles.home}>
 
                 <View style={styles.homeHeader}>
 
@@ -35,7 +35,7 @@ export default function ImgPreview(props) {
 
                 </View>
 
-                <ScrollView style={styles.previewContainer}>
+                <View style={styles.previewContainer}>
 
                     <Image
                         style={{width: "100%", height: "100%", borderRadius: 4, borderColor: "white", borderWidth: 4, marginBottom: 24}}
@@ -43,9 +43,9 @@ export default function ImgPreview(props) {
                         contentFit="contain"
                     />
 
-                    <TCard></TCard>
+                    <TCard text={props.translated}></TCard>
 
-                    <Pressable style={styles.refreshBtn} onPress={() => console.log("fuc u")}>
+                    <Pressable style={styles.refreshBtn} onPress={() => console.log("hi")}>
 
                         <Image
                             style={{width: 24, height: 24}}
@@ -57,9 +57,9 @@ export default function ImgPreview(props) {
 
                     </Pressable>
 
-                </ScrollView>
+                </View>
 
-            </View>
+            </ScrollView>
 
             <Navigation></Navigation>
 

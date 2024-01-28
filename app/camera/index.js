@@ -34,6 +34,7 @@ export default function Page() {
                         </View>
                     </Link>
 
+                    <Link href={"/asl"}>
                     <View style={styles.aslCard}>
 
                         <Image
@@ -47,6 +48,7 @@ export default function Page() {
                         <Text style={styles.betaText}>BETA</Text>
 
                     </View>
+                    </Link>
 
 
                 </View>

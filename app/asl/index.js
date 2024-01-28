@@ -35,29 +35,28 @@ export default function Page() {
         setType(current => (current === CameraType.back ? CameraType.front : CameraType.back));
     }
 
-    const getBlobFroUri = async (uri) => {
-        const blob = await new Promise((resolve, reject) => {
-          const xhr = new XMLHttpRequest();
-          xhr.onload = function () {
-            resolve(xhr.response);
-          };
-          xhr.onerror = function (e) {
-            reject(new TypeError("Network request failed"));
-          };
-          xhr.responseType = "blob";
-          xhr.open("GET", uri, true);
-          xhr.send(null);
-        });
-      
-        return blob;
-    };
-
-    const startRecording = async () => {
-        if (camera.current) {
-          const { uri } = await camera.current.recordAsync();
-          // Handle the recorded video URI
-        }
-      };
+    // const startRecording = async () => {
+    //     if (camera.current) {
+    //         const frames = [];
+    //         const { uri } = await camera.current.recordAsync();
+        
+    //         // Get frames from the recorded video
+    //         const video = await FileSystem.readAsStringAsync(uri, { encoding: FileSystem.EncodingType.Base64 });
+    //         // Implement logic to convert video frames to an array of frames
+        
+    //         frames.forEach(async (frame, index) => {
+    //             // Send each frame to the server using axios or fetch
+    //             try {
+    //             const response = await axios.post('your-server-url', { frame });
+    //             console.log('Frame sent successfully:', response.data);
+    //             } catch (error) {
+    //             console.error('Error sending frame:', error);
+    //             }
+    //         });
+    //         }
+    //       // Handle the recorded video URI
+    //     }
+    //   };
     
     const stopRecording = () => {
         if (camera.current) {
@@ -88,7 +87,7 @@ return (
                 </View>
             </Link>
 
-            <TouchableOpacity style={{padding: 8, backgroundColor:"black", borderRadius: 4}} onPress={toggleCameraType}>
+            <TouchableOpacity style={{padding: 8, backgroundColor:"black", borderRadius: 4}} onPress={(isRecording) ? stopRecording : startRecording}>
                 <Image
                     style={{ width: 24, height: 24}}
                     source={require("../../assets/switch.svg")}
@@ -101,7 +100,7 @@ return (
         <View style={styles.buttonContainer}>
 
 
-            <TouchableOpacity style={styles.button} onPress={takePicture}>
+            <TouchableOpacity style={styles.button} onPress={startRecording}>
                 <View style={{width: 52, height: 52, borderRadius: "50%", backgroundColor: "white"}}></View>
             </TouchableOpacity>
 
