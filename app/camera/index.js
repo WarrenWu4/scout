@@ -2,10 +2,6 @@ import { SafeAreaView } from "react-native-safe-area-context"
 import { View, Text, StyleSheet } from "react-native"
 import { Image } from "expo-image"
 import Navigation from "../../components/Navigation"
-<<<<<<< HEAD
-import { Link } from "expo-router"
-=======
->>>>>>> dfbc07c858a49b539f7e3525a96845b361ca2678
 
 export default function Page() {
     return (
@@ -27,21 +23,6 @@ export default function Page() {
 
                 <View style={styles.services}>
 
-<<<<<<< HEAD
-                    <Link href={"/camera/snapshot"}>
-                        <View style={styles.brailleCard}>
-
-                            <Image
-                                style={{width: 48, height: 48}}
-                                source={require("../../assets/brailleIcon.svg")}
-                                contentFit="contain"
-                            />
-
-                            <Text style={styles.brailleText}>Braille</Text>
-
-                        </View>
-                    </Link>
-=======
                     <View style={styles.brailleCard}>
 
                         <Image
@@ -53,7 +34,6 @@ export default function Page() {
                         <Text style={styles.brailleText}>Braille</Text>
 
                     </View>
->>>>>>> dfbc07c858a49b539f7e3525a96845b361ca2678
 
                     <View style={styles.aslCard}>
 
