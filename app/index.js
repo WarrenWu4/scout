@@ -49,11 +49,11 @@ export default function Page() {
                         source={require("../assets/google.svg")}
                         style={{ width: 24, height: 24 }}
                     />
-                    <Pressable>
+                    <Link href={"/home"}>
                         <Text style={styles.buttonText}>
                             Sign in with Google
                         </Text>
-                    </Pressable>
+                    </Link>
                 </View>
 
                 <View style={styles.svgPlusButton}>
@@ -61,11 +61,11 @@ export default function Page() {
                         source={require("../assets/apple.svg")}
                         style={{ width: 24, height: 24 }}
                     />
-                    <Pressable>
+                    <Link href={"/home"}>
                         <Text style={styles.buttonText}>
                             Sign in with Apple
                         </Text>
-                    </Pressable>
+                    </Link>
                 </View>
 
                 <View style={styles.svgPlusButton}>
@@ -76,11 +76,11 @@ export default function Page() {
                             height: 24,
                         }}
                     />
-                    <Pressable>
+                    <Link href={"/home"}>
                         <Text style={styles.buttonText}>
                             Sign in with Facebook
                         </Text>
-                    </Pressable>
+                    </Link>
                 </View>
 
                 <View style={styles.svgPlusButton}>
