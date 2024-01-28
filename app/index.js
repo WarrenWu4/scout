@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, ImageBackground } from "react-native";
+import { StyleSheet } from "react-native";
 import { View, Text } from "react-native";
 import { Image } from "expo-image";
 import { Link } from "expo-router";
