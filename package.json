@@ -22,8 +22,12 @@
     "expo-linking": "~6.2.2",
     "expo-constants": "~15.4.5",
     "expo-image": "~1.10.5",
+<<<<<<< HEAD
     "expo-asset": "~9.0.2",
     "expo-camera": "~14.0.3"
+=======
+    "expo-asset": "~9.0.2"
+>>>>>>> dfbc07c858a49b539f7e3525a96845b361ca2678
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

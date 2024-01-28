@@ -1,6 +1,10 @@
 import { Pressable, StyleSheet, ImageBackground } from "react-native";
 import { View, Text } from "react-native";
 import { Image } from "expo-image";
+<<<<<<< HEAD
+=======
+import { Link } from "expo-router";
+>>>>>>> dfbc07c858a49b539f7e3525a96845b361ca2678
 
 export default function SignIn() {
     return (
@@ -15,14 +19,8 @@ export default function SignIn() {
                     style={{ width: 145, height: 50 }}
                 />
                 <Text style={styles.headerText}>
-                    your braille text-to-speech assistant for those with{" "}
-                    <Text>
-                        <Image
-                            source={require("../../assets/gradient.svg")}
-                            style={{ width: 103, height: 40 }}
-                        />
-                    </Text>
-                    r vision
+                    your braille text-to-speech assistant for those with fading
+                    vision{" "}
                 </Text>
             </View>
             <View style={styles.buttonList}>
@@ -61,6 +59,15 @@ export default function SignIn() {
                             Sign in with Facebook
                         </Text>
                     </Pressable>
+                </View>
+                <View style={styles.svgPlusButton}>
+                    <Image
+                        source={require("../../assets/user.svg")}
+                        style={{ width: 24, height: 24 }}
+                    />
+                    <Link href={"/home"}>
+                        <Text style={styles.buttonText}>Continue as Guest</Text>
+                    </Link>
                 </View>
             </View>
         </View>
