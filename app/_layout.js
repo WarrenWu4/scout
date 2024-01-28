@@ -1,20 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native';
-import { Link, Slot } from 'expo-router';
+import { Slot } from 'expo-router';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-        <Link href={"/home"}>home page</Link>
-        <Slot/>
-    </View>
-  );
+export default function MainLayout() {
+    return <Slot/>
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
