@@ -1,16 +1,12 @@
 import { initializeApp } from "firebase/app";
-import { getFunctions } from "firebase/functions";
 
 const firebaseConfig = {
-    apiKey: process.env.EXPO_PUBLIC_API_KEY,
-    authDomain: process.env.EXPO_PUBLIC_AUTH_DOMAIN,
-    projectId: process.env.EXPO_PUBLIC_PROJECT_ID,
-    storageBucket: process.env.EXPO_PUBLIC_STORAGE_BUCKET,
-    messagingSenderId: process.env.EXPO_PUBLIC_MESSAGING_SENDER_ID,
-    appId: process.env.EXPO_PUBLIC_APP_ID,
-    measurementId: process.env.EXPO_PUBLIC_MEASUREMENT_ID,
-};
+    apiKey: "AIzaSyCW3xHe1rivoCqATmiccgmlRNWnCcCKTNA",
+    authDomain: "dev-test-58595.firebaseapp.com",
+    projectId: "dev-test-58595",
+    storageBucket: "dev-test-58595.appspot.com",
+    messagingSenderId: "651339375030",
+    appId: "1:651339375030:web:80bf88e666c3101a8aa117"
+  };
 
-const app = initializeApp(firebaseConfig);
-
-export const functions = getFunctions(app);
+export const app = initializeApp(firebaseConfig);

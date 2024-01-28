@@ -9,6 +9,9 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { uploadImage } from '../../firebase/functions';
 import * as FileSystem from 'expo-file-system';
 
+import { getDownloadURL, getStorage, ref, uploadBytes } from '@firebase/storage';
+import { app } from '../../firebase/firebase';
+
 export default function Page() {
 
     let camera = null;
@@ -55,31 +58,43 @@ export default function Page() {
         return blob;
     };
 
+    
+
     async function takePicture() {
         if (camera) {
             setTranslated("")
             const photo = await camera.takePictureAsync();
 
-            // const imageBlog = await getBlobFroUri(photo.uri);
-
-            // console.log(imageBlog)
             // const base64 = await FileSystem.readAsStringAsync(photo.uri, { encoding: 'base64' });
 
             // console.log(base64)
+
+            // const imageBlob = await getBlobFroUri(photo.uri);
+            // console.log(imageBlob)
+            const storage = getStorage(app);
+            const storageRef = ref(storage, 'images/' + photo.uri.split('/').pop());
+            const imageBlob = await fetch(photo.uri).then((response) => response.blob());
             
+            await uploadBytes(storageRef, imageBlob);
+            console.log('Image uploaded successfully!');
+
+            const url = await getDownloadURL(ref(storage, 'images/' + photo.uri.split('/').pop()));
+            console.log(url);
+        
             const test = await fetch("http://10.228.163.106:5000", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    "bucket_uri":"https://i.imgur.com/osNCAx3.jpg"
+                    "bucket_uri": "https://i.imgur.com/osNCAx3.jpg",
                 }),
             });
             
             console.log(test);
             const responseData = await test.json();
             setTranslated(responseData["final_string"]);
+            console.log(responseData["final_string"])
             setPreview(true);
             setImg(photo);
             
