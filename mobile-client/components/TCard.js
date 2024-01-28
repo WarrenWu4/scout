@@ -1,19 +1,13 @@
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import { Image } from "expo-image";
-import * as Speech from "expo-speech";
 
 export default function TCard() {
-    const speak = () => {
-        const thingToSay = "Hello World";
-        Speech.speak(thingToSay);
-    };
-
     return (
         <View style={styles.card}>
             <View style={styles.cardControl}>
                 <Pressable
                     style={styles.switchBtn}
-                    onPress={() => speak}
+                    onPress={() => console.log("fuc u")}
                     title="View"
                 >
                     <Image
