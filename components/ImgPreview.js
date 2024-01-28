@@ -4,7 +4,6 @@ import { View, Text, StyleSheet, Pressable } from "react-native"
 import { Image } from "expo-image"
 import Navigation from "./Navigation"
 import TCard from "./TCard"
-import { ImageBackground } from "react-native"
 import { ScrollView } from "react-native"
 
 export default function ImgPreview(props) {
@@ -18,13 +17,13 @@ export default function ImgPreview(props) {
 
                 <View style={styles.homeHeader}>
 
-                    <Link href={"/camera/snapshot"}>
+                    <Pressable onPress={() => props.setPreview(false)}>
                         <Image
-                            style={{ width: 40, height: 40 }}
+                            style={{ width: 32, height: 32 }}
                             source={require("../assets/backArrow.svg")}
                             contentFit="contain"
                         />
-                    </Link>
+                    </Pressable>
 
                     <Text style={styles.homeTitleText}>Translator</Text>
 
@@ -39,22 +38,22 @@ export default function ImgPreview(props) {
                 <ScrollView style={styles.previewContainer}>
 
                     <Image
-                        style={{width: "100%", height: "100%", borderRadius: 4, borderColor: "white", borderWidth: 4}}
+                        style={{width: "100%", height: "100%", borderRadius: 4, borderColor: "white", borderWidth: 4, marginBottom: 24}}
                         source={{uri: props.img.uri}}
                         contentFit="contain"
                     />
 
                     <TCard></TCard>
 
-                    <Pressable onPress={() => console.log("fuc u")}>
+                    <Pressable style={styles.refreshBtn} onPress={() => console.log("fuc u")}>
 
                         <Image
-                            style={{width: 32, height: 32}}
+                            style={{width: 24, height: 24}}
                             source={require("../assets/reloadIcon.svg")}
                             contentFit="contain"
                         />
 
-                        <Text>Refresh</Text>
+                        <Text style={styles.refreshBtnText}>Refresh</Text>
 
                     </Pressable>
 
@@ -83,10 +82,27 @@ const styles = StyleSheet.create({
         width: "100%",
         display: "flex",
         flexDirection: "row",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        alignItems: "center"
     },
     homeTitleText: {
         fontSize: 22,
         fontWeight: "bold",
     },
+    previewContainer: {
+        marginTop: 32,
+        display: "flex"
+    },
+    refreshBtn: {
+        width: "100%",
+        backgroundColor: "black",
+        borderRadius: 4, display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", columnGap: 8,
+        paddingLeft: 16, paddingRight: 16,
+        paddingTop: 12, paddingBottom: 12, marginTop: 24,    
+    },
+    refreshBtnText: {
+        fontWeight: "bold",
+        fontSize: 16,
+        color: "#F4C288"
+    }
 })

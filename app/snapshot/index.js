@@ -2,7 +2,9 @@ import { Camera, CameraType } from 'expo-camera';
 import { useState } from 'react';
 import { Button, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import { Link } from 'expo-router';
+import { Image } from 'expo-image';
 import ImgPreview from "../../components/ImgPreview"
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Page() {
 
@@ -42,36 +44,47 @@ export default function Page() {
 
     if (preview && img) {
         return (
-            <ImgPreview img={img}></ImgPreview>
+            <ImgPreview img={img} setPreview={setPreview}></ImgPreview>
         );
     }
 
 return (
-    <View style={styles.container}>
-    <Camera style={styles.camera} type={type} ref={(r) => {camera = r}}>
+    <SafeAreaView style={styles.container}>
+        <Camera style={styles.camera} type={type} ref={(r) => {camera = r}}>
 
-        <View style={styles.buttonContainer}>
+        <View style={styles.buttonContainerController}>
 
-            <View>
+            <Link href="/camera">
+                <View style={{padding: 8, backgroundColor:"white", borderRadius: 4}}>
+                    <Image
+                        style={{ width: 24, height: 24}}
+                        source={require("../../assets/backArrow.svg")}
+                        contentFit="contain"
+                    />
+                </View>
+            </Link>
 
-                <Link href="/camera">
-                    <Text>Back</Text>
-                </Link>
-
-                <TouchableOpacity style={styles.button} onPress={toggleCameraType}>
-                    <Text style={styles.text}>Flip Camera</Text>
-                </TouchableOpacity>
-
-            </View>
-
-        <TouchableOpacity style={styles.button} onPress={takePicture}>
-            <View style={{width: 52, height: 52, borderRadius: "50%", backgroundColor: "white"}}></View>
-        </TouchableOpacity>
+            <TouchableOpacity style={{padding: 8, backgroundColor:"black", borderRadius: 4}} onPress={toggleCameraType}>
+                <Image
+                    style={{ width: 24, height: 24}}
+                    source={require("../../assets/switch.svg")}
+                    contentFit="contain"
+                />
+            </TouchableOpacity>
 
         </View>
 
-    </Camera>
-    </View>
+        <View style={styles.buttonContainer}>
+
+
+            <TouchableOpacity style={styles.button} onPress={takePicture}>
+                <View style={{width: 52, height: 52, borderRadius: "50%", backgroundColor: "white"}}></View>
+            </TouchableOpacity>
+
+        </View>
+
+        </Camera>
+    </SafeAreaView>
 );
 }
 
@@ -79,8 +92,7 @@ const styles = StyleSheet.create({
     container: {
         width: "100%",
         height: "100%",
-        flex: 1,
-        justifyContent: 'center',
+        backgroundColor: "black",
     },
     camera: {
         flex: 1,
@@ -89,7 +101,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         backgroundColor: 'transparent',
-        margin: 64,
+        marginBottom: 40,
     },
     button: {
         flex: 1,
@@ -101,4 +113,12 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'white',
     },
+    buttonContainerController: {
+        width: "100%",
+        padding: 16,
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        padding: 32,
+    }
 });

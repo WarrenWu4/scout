@@ -46,7 +46,7 @@ export default function Navigation() {
 const styles = StyleSheet.create({
     navigation: {
         width: "100%",
-        height: 100,
+        height: 80,
         display: "flex", flexDirection: "row",
         justifyContent: "space-evenly", alignItems: "center",
         position: "absolute", bottom: 0,
